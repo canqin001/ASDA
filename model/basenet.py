@@ -20,6 +20,20 @@ class GradReverse(Function):
 def grad_reverse(x, lambd=1.0):
     return GradReverse(lambd)(x)
 
+# class GradReverse(Function):     
+#     @staticmethod
+#     def forward(self, x, lambd):
+#         self.lambd = lambd
+#         return x.view_as(x)
+    
+#     @staticmethod
+#     def backward(self, grad_output):
+#         output = grad_output * -self.lambd
+#         return output, None
+
+# def grad_reverse(x, lambd=1.0):
+#     return GradReverse.apply(x, lambd)
+
 
 def l2_norm(input):
     input_size = input.size()
